@@ -1,0 +1,58 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {},
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/stock": {
+      "get": {
+        "tags": [
+          "Stock"
+        ],
+        "description": "Endpoint para obter lista de ações.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/news": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "description": "Endpoint para obter ultimas notícias.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/news/{stock}": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "description": "Endpoint para obter notícias de uma ação.",
+        "parameters": [
+          {
+            "name": "stock",
+            "in": "path",
+            "required": true,
+            "description": "Código da ação a ser buscada, como por exemplo MGLU3.",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}

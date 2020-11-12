@@ -33,7 +33,7 @@ class FundamentusService {
           let decoder = new TextDecoder("iso-8859-1");
           let text = decoder.decode(buffer);
           const tableData = FundamentusService.#parseData(text);
-          resolve({ message: 'ok', data: tableData });
+          resolve({ status: 'ok', data: tableData });
         }).catch(error => rejects(error));
     });
   }
