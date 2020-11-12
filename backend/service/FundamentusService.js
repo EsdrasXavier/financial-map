@@ -28,12 +28,13 @@ class FundamentusService {
       };
 
       fetch(FUNDAMENTUS_URL, requestOptions)
-        .then(response => response.text())
-        .then(data => {
-          const tableData = FundamentusService.#parseData(data);
+        .then(response => response.arrayBuffer())
+        .then(buffer => {
+          let decoder = new TextDecoder("iso-8859-1");
+          let text = decoder.decode(buffer);
+          const tableData = FundamentusService.#parseData(text);
           resolve({ message: 'ok', data: tableData });
-        })
-        .catch(error => rejects(error));
+        }).catch(error => rejects(error));
     });
   }
 
