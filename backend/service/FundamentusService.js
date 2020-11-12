@@ -1,10 +1,10 @@
 'use strict';
+const fetch = require('node-fetch');
 
 const FormData = require('form-data');
 const HOST = 'www.fundamentus.com.br';
 const FUNDAMENTUS_URL = `http://${HOST}/resultado.php`;
 
-const fetch = require('node-fetch');
 class FundamentusService {
   static #LINK_REGEX = new RegExp(/<a [^>]+>(.*?)<\/a>/);
   static #CELL_REGEX = new RegExp(/<td>(.*?)<\/td>/);

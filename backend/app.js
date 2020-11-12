@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const http = require('http')
 const morgan = require('morgan');
 const FundamentusService = require('./service/FundamentusService');
+const NewsService = require('./service/NewsService');
 
 const app = express();
 
@@ -13,6 +13,16 @@ app.use(cors());
 app.use('/stock', async function (req, res) {
   const data = await FundamentusService.fetchStocks(res);
   return res.json(data);
+});
+
+app.use('/news/:stock', async (req, res) => {
+  const data = await NewsService.fetchNewsForStock(req.params.stock);
+  res.json(data);
+});
+
+app.use('/news', async (req, res) => {
+  const data = await NewsService.fetchAllNews();
+  res.json(data);
 });
 
 const notFound = (req, res, next) => {
