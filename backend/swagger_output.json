@@ -15,6 +15,16 @@
   "consumes": [],
   "produces": [],
   "paths": {
+    "/cache": {
+      "delete": {
+        "tags": [
+          "Cache"
+        ],
+        "description": "Endpoint limpar cache da aplicação.",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/stock": {
       "get": {
         "tags": [
