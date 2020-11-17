@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './app.css';
+import Dashboard from './components/Dashboard/Dashboard';
+import Navbar from './components/Navbar/Navbar';
+import Stocks from './components/Stocks/Stocks';
 
-function App() {
+const { Header, Footer, Content } = Layout;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Header>Header</Header>
+        <Content>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/stocks" element={<Stocks />} />
+          </Routes>
+        </Content>
+        <Footer>
+          <Navbar />
+        </Footer>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
