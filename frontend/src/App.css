@@ -48,6 +48,7 @@ main {
   min-height: 120px;
   color: #fff;
   line-height: 120px;
+  padding: 1rem;
   /* background: rgba(16, 142, 233, 1); */
 }
 [data-theme="dark"] .ant-layout-content {
@@ -69,4 +70,26 @@ main {
 
 .Nav__Container {
   text-align: center;
+}
+
+.dashboard-currency-col {
+  padding: 0.5rem;
+}
+
+.dashboard-currency-col .ant-card-bordered {
+  transition: box-shadow 0.3s;
+}
+
+.dashboard-currency-col .ant-card-bordered:hover {
+  box-shadow: 0 0 7px rgba(33, 33, 33, 0.2);
+}
+
+.relevant-news-list {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.currencies-cards-container {
+  max-height: 72vh;
+  overflow: auto;
 }
