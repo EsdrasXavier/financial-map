@@ -1,6 +1,7 @@
 'use-strict';
 
 const FundamentusService = require('./service/FundamentusService');
+const HGService = require('./service/HGService');
 const NewsService = require('./service/NewsService');
 
 let _cache = {};
@@ -29,6 +30,11 @@ const isRequestCached = url => {
 }
 
 module.exports = function (app) {
+  app.get('/currencies', async function (req, res) {
+    const data = await HGService.fetchCurrencies();
+    return res.json(data);
+  });
+
   app.delete('/cache', async function (req, res) {
     // #swagger.tags = ['Cache']
     // #swagger.description = 'Endpoint limpar cache da aplicação.'
