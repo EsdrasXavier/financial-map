@@ -23,8 +23,8 @@ const Currencies = () => {
         </h2>
       </Divider>
       <Row className="currencies-cards-container">
-        {currencies.map(({ name, price }) => (
-          <Col span={12} className="dashboard-currency-col">
+        {currencies.map(({ name, price }, key) => (
+          <Col key={key} span={12} className="dashboard-currency-col">
             <CurrencyCard name={name} price={price} />
           </Col>
         ))}

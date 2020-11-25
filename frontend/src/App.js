@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Dashboard from './components/Dashboard/Dashboard';
 import Navbar from './components/Navbar/Navbar';
@@ -14,10 +14,10 @@ const App = () => {
       <Layout>
         <Header>Header</Header>
         <Content>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/stocks" element={<Stocks />} />
-          </Routes>
+          <Switch>
+            <Route path="/" component={Dashboard} />
+            <Route path="/stocks" component={Stocks} />
+          </Switch>
         </Content>
         <Footer>
           <Navbar />
