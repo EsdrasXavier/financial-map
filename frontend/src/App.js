@@ -15,8 +15,8 @@ const App = () => {
         <Header>Header</Header>
         <Content>
           <Switch>
-            <Route path="/" component={Dashboard} />
             <Route path="/stocks" component={Stocks} />
+            <Route path="/" component={Dashboard} />
           </Switch>
         </Content>
         <Footer>
