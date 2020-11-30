@@ -31,6 +31,8 @@ const isRequestCached = url => {
 
 module.exports = function (app) {
   app.get('/currencies', async function (req, res) {
+    // #swagger.tags = ['Currencies']
+    // #swagger.description = 'Busca os valores das moedas mundiais.'
     const data = await HGService.fetchCurrencies();
     return res.json(data);
   });
