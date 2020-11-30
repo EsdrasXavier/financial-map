@@ -44,6 +44,11 @@ module.exports = function (app) {
     return res.json({ status: 'ok', cache: _cache });
   });
 
+  app.route('/error')
+    .get(() => {
+      throw "ERRORR";
+    });
+
   app.get('/stock', async function (req, res) {
     const { originalUrl } = req;
 
