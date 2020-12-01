@@ -51,6 +51,10 @@ main {
   padding: 1rem;
   /* background: rgba(16, 142, 233, 1); */
 }
+
+main.ant-layout-content {
+  height: calc(100vh - 140px);
+}
 [data-theme="dark"] .ant-layout-content {
   background: #107bcb;
 }
@@ -92,4 +96,12 @@ main {
 .currencies-cards-container {
   max-height: 72vh;
   overflow: auto;
+}
+
+.top-ten-stocks .ant-table-content {
+  overflow-x: scroll;
+}
+.stock-title {
+  color: #000;
+  max-height: 10vh;
 }
