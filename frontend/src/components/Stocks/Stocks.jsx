@@ -1,5 +1,12 @@
-import { Col, Row, Table } from 'antd';
+import { Col, Row, Table, notification } from 'antd';
 import React, { useEffect, useState } from 'react';
+
+const openNotification = error => {
+  notification['error']({
+    message: 'Erro ao buscar dados',
+    description: `Erro ao ler ações: ${error.message}`
+  });
+};
 
 const Stocks = () => {
   const [header, setHeader] = useState([]);
@@ -21,8 +28,7 @@ const Stocks = () => {
 
         setHeader(columns);
         setData(responseData['data']['rows']);
-      })
-      .catch(error => console.error(error));
+      }).catch(openNotification);
   }
 
   return (
