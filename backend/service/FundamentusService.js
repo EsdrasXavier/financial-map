@@ -15,7 +15,8 @@ class FundamentusService {
       formdata.append("firma_ebit_min", "0");
       formdata.append("firma_ebitda_min", "0");
       formdata.append("liq_min", "200000");
-      formdata.append("ordem", "1");
+      formdata.append("negociada", "ON");
+      formdata.append("ordem", "9");
 
       const requestOptions = {
         method: 'POST',
