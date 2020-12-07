@@ -31,7 +31,15 @@ const isRequestCached = url => {
 
 module.exports = function (app) {
   app.get('/currencies', async function (req, res) {
+    const { originalUrl } = req;
+
+    if (isRequestCached(originalUrl))
+      return res.json(getCachedData(originalUrl));
+
+    // #swagger.tags = ['Currencies']
+    // #swagger.description = 'Busca os valores das moedas mundiais.'
     const data = await HGService.fetchCurrencies();
+    cacheData(originalUrl, data);
     return res.json(data);
   });
 
@@ -41,6 +49,11 @@ module.exports = function (app) {
     Object.keys(_cache).forEach(key => delete _cache[key]);
     return res.json({ status: 'ok', cache: _cache });
   });
+
+  app.route('/error')
+    .get(() => {
+      throw "ERRORR";
+    });
 
   app.get('/stock', async function (req, res) {
     const { originalUrl } = req;

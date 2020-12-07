@@ -31,6 +31,6 @@ const Currencies = () => {
       </Row>
     </div>
   );
-}
+ }
 
 export default Currencies;

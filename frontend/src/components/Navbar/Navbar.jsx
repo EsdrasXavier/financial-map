@@ -17,12 +17,12 @@ const Navbar = () => {
       </Col>
       <Col span={6} className="Nav__item">
         <h3>
-          <Link className="Nav__link" to="/">Dashboard</Link>
+          <Link className="Nav__link" to="/news">News</Link>
         </h3>
       </Col>
       <Col span={6} className="Nav__item">
         <h3>
-          <Link className="Nav__link" to="/stocks">Stocks</Link>
+          <Link className="Nav__link" to="/currencies">Currencies</Link>
         </h3>
       </Col>
     </Row>
