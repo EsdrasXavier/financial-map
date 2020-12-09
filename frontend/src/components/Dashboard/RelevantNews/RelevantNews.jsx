@@ -1,30 +1,32 @@
-import { Divider, List } from 'antd';
-import React from 'react';
+import { Divider, List, notification } from 'antd';
+import React, { useEffect, useState } from 'react';
+
+const openNotification = error => {
+  notification['error']({
+    message: 'Erro ao buscar dados',
+    description: `Erro ao ler ações: ${error.message}`
+  });
+};
 
 const RelevantNews = () => {
+  const [news, setNews] = useState([]);
 
-  const data = [
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Los Angeles battles huge wildfires.'
-  ];
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    fetch('http://127.0.0.1:3000/news')
+      .then(response => response.json())
+      .then(responseData => {
+        const obj = Object.keys(responseData['articles']);
+        let dataNews = [];
+        for(let i in obj) {
+          dataNews.push(responseData['articles'][i].title);
+        }
+        setNews(dataNews);
+      }).catch(openNotification);
+  }
 
   return (
     <div>
@@ -39,7 +41,7 @@ const RelevantNews = () => {
         header={''}
         footer={''}
         bordered
-        dataSource={data}
+        dataSource={news}
         renderItem={item => <List.Item>{item}</List.Item>}
       />
     </div>
