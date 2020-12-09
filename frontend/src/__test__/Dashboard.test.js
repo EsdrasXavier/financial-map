@@ -5,7 +5,7 @@ describe('Test the `<Dashboard />` component.', () => {
 
   test('Renders the app and check if the title is loaded.', () => {
     render(<Dashboard />);
-    const linkElement = screen.getByText(/RelevantNews/);
+    const linkElement = screen.getByText();
     expect(linkElement).toBeInTheDocument();
   });
 });
