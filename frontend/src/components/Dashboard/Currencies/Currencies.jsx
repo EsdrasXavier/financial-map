@@ -24,7 +24,12 @@ const Currencies = () => {
         let dataCurrencies = [];
         for(let i in obj) {
           if (obj[i] != 'source'){
-            dataCurrencies.push({name: responseData['data'][obj[i]].name, price: responseData['data'][obj[i]].buy});
+            dataCurrencies.push({
+              name: responseData['data'][obj[i]].name, 
+              buy: responseData['data'][obj[i]].buy,
+              sell: responseData['data'][obj[i]].sell,
+              variation: responseData['data'][obj[i]].variation
+            });
           }
         }
         setCurrencies(dataCurrencies);
@@ -39,9 +44,9 @@ const Currencies = () => {
         </h2>
       </Divider>
       <Row className="currencies-cards-container">
-        {currencies.map(({ name, price }, key) => (
+        {currencies.map(({ name, buy, sell, variation }, key) => (
           <Col key={key} span={12} className="dashboard-currency-col">
-            <CurrencyCard name={name} price={price} />
+            <CurrencyCard name={name} buy={buy} sell={sell} variation={variation}  />
           </Col>
         ))}
       </Row>
