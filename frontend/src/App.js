@@ -6,7 +6,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Navbar from './components/Navbar/Navbar';
 import Stocks from './components/Stocks/Stocks';
 import News from './components/News/News';
-import Currencies from './components/Currencies/Currencies';
 
 const { Header, Footer, Content } = Layout;
 
@@ -18,7 +17,6 @@ const App = () => {
         <Content>
           <Switch>
             <Route path="/stocks" component={Stocks} />
-            <Route path="/currencies" component={Currencies} />  
             <Route path="/news" component={News} />
             <Route path="/" component={Dashboard} />
           </Switch>
